@@ -1,5 +1,6 @@
 package com.isoy.ezcontact;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,12 +35,12 @@ public class GenerateCodeActivity extends ActionBarActivity {
         txtPhone=(EditText)findViewById(R.id.txtPhone);
         txtEmail=(EditText)findViewById(R.id.txtEmail);
     }
-    public void generateOnlClick(View V){
-        String content = txtFname.getText().toString() +";"+ txtLname.getText().toString() +";"+ txtPhone.getText().toString()
-                    +";"+ txtEmail.getText().toString();
+    public void generateOnlClick(View V) {
+        String content = txtFname.getText().toString() + ";" + txtLname.getText().toString() + ";" + txtPhone.getText().toString()
+                + ";" + txtEmail.getText().toString();
         //Generate QR code......
         QRCodeWriter writer = new QRCodeWriter();
-        ImageView myQRCodeImg = (ImageView)findViewById(R.id.myQRCode);
+        ImageView myQRCodeImg = (ImageView) findViewById(R.id.myQRCode);
 
         try {
             BitMatrix bitMatrix = writer.encode(content,
@@ -58,6 +60,7 @@ public class GenerateCodeActivity extends ActionBarActivity {
         } catch (WriterException e) {
             //Log.e("QR ERROR", ""+e);
         }
+
     }
 
     @Override
