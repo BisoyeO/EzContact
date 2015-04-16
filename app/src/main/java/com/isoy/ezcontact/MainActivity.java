@@ -63,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }
     }
+
     //parse the information scanned by the QR code
     public void parseContact(String contact){
         String [] info = contact.split(";");
